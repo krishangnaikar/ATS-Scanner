@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "ResuMaster Filler (PartyRock)",
+  "version": "1.0.0",
+  "description": "Saves your resume and sends the current page's job description into your PartyRock ResuMaster app.",
+  "permissions": ["storage", "scripting", "activeTab", "contextMenus", "tabs"],
+  "host_permissions": ["https://partyrock.aws/*"],
+  "action": { "default_title": "ResuMaster Filler" },
+  "options_page": "options.html",
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://partyrock.aws/*"],
+      "js": ["partyrock_filler.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
