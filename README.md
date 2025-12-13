@@ -62,6 +62,3 @@
 
 MIT
 """
-with open("/mnt/data/README.md", "w", encoding="utf-8") as f:
-    f.write(readme)
-print("README.md written to /mnt/data/README.md")
