@@ -82,6 +82,9 @@ async function fillOnce() {
   const resumeEl = document.querySelector(SELECTORS.resume);
   const jobEl    = document.querySelector(SELECTORS.job);
 
+  // Wait for every field with pending content before filling or submitting.
+  if ((resumeText && !resumeEl) || (lastJobDescription && !jobEl)) return false;
+
   let wrote = false;
   if (resumeText && resumeEl) wrote = setNativeValue(resumeEl, resumeText) || wrote;
   if (lastJobDescription && jobEl) wrote = setNativeValue(jobEl, lastJobDescription) || wrote;
